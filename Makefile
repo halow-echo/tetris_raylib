@@ -208,7 +208,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),WINDOWS)
         # resource file contains windows executable icon and properties
         # -Wl,--subsystem,windows hides the console window
-        CFLAGS += $(RAYLIB_PATH)/src/raylib.rc.data
+        # CFLAGS += $(RAYLIB_PATH)/src/raylib.rc.data
     endif
     ifeq ($(PLATFORM_OS),LINUX)
         ifeq ($(RAYLIB_LIBTYPE),STATIC)
@@ -309,7 +309,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),WINDOWS)
         # Libraries for Windows desktop compilation
         # NOTE: WinMM library required to set high-res timer resolution
-        LDLIBS = -lraylib -lopengl32 -lgdi32 -lwinmm
+        LDLIBS = -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows
         # Required for physac examples
         #LDLIBS += -static -lpthread
     endif
@@ -370,7 +370,7 @@ OBJ_DIR = obj
 # Define all object files from source files
 SRC = $(call rwildcard, *.c, *.h)
 #OBJS = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-OBJS ?= main.c
+OBJS ?= src/main.cpp src/grid.cpp src/game.cpp src/block.cpp src/blocks.cpp src/colors.cpp src/position.cpp
 
 # For Android platform we call a custom Makefile.Android
 ifeq ($(PLATFORM),PLATFORM_ANDROID)
