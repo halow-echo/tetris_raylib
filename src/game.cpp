@@ -11,10 +11,10 @@ Game::Game()
     gameOver = false;
     score = 0;
     InitAudioDevice();
-    music = LoadMusicStream("sounds/theme.mp3");
+    music = LoadMusicStream("assets/sounds/theme.mp3");
     PlayMusicStream(music);
-    rotateSound = LoadSound("sounds/rotate.mp3");
-    clearSound = LoadSound("sounds/clear.mp3");
+    rotateSound = LoadSound("assets/sounds/rotate.mp3");
+    clearSound = LoadSound("assets/sounds/clear.mp3");
 }
 
 Game::~Game()
